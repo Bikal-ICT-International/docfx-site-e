@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   build:
@@ -45,7 +45,6 @@ jobs:
             mytemplate
             xtheme
             tools
-          sparse-checkout-cone: true
 
       - name: Restore PDF version state cache
         id: cache-pdf-state
