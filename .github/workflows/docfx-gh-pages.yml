@@ -2,7 +2,8 @@ name: Build and Deploy DocFX to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
     paths:
       - "**/*.md"
       - "Products/**"
@@ -119,7 +120,10 @@ jobs:
             pip-${{ runner.os }}-
 
       - name: Upgrade pip (only if a newer version exists)
-        if: steps.md-changes.outputs.changed == 'true' && steps.pip-latest.outputs.update_needed == 'true' && steps.pip-cache.outputs.cache-hit != 'true'
+        if: |
+          steps.md-changes.outputs.changed == 'true' &&
+          steps.pip-latest.outputs.update_needed == 'true' &&
+          steps.pip-cache.outputs.cache-hit != 'true'
         run: python -m pip install --upgrade pip
 
       - name: Install Playwright
