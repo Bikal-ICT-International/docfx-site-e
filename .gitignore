@@ -43,3 +43,16 @@ launchSettings.json
 # Local deploy helpers
 /deploy*.ps1
 
+
+# Generated PDF metadata/state
+tools/pdf-version-state.json
+tools/pdf-version-report.json
+tools/pdf-version-snapshots/
+
+# DOCX conversion artifacts (media extracted from uploads)
+images/uploads/
+
+# Generated PDFs (built by workflow, not source)
+Products/**/*.pdf
+pdf/
+

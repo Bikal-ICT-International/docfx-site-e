@@ -1,63 +1,101 @@
-name: Build and Deploy DocFX to gh-pages
+﻿name: Build and Deploy DocFX to GitHub Pages
 
 on:
   push:
     branches: ["main"]
     paths:
       - "**/*.md"
-  pull_request:
-    branches: ["main"]
-    paths:
-      - "**/*.md"
+      - "Products/**"
+      - "images/**"
+      - "Products/toc.yml"
+      - "toc.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: "gh-pages-deploy"
-  cancel-in-progress: true
+  group: "github-pages"
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
+      - name: Restore PDF version state cache
+        id: cache-pdf-state
+        uses: actions/cache@v4
+        with:
+          path: |
+            tools/pdf-version-state.json
+            tools/pdf-version-report.json
+          key: pdf-state-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            pdf-state-${{ runner.os }}-${{ github.ref_name }}-
+            pdf-state-${{ runner.os }}-
+            pdf-state-
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: "9.0.x"
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.x"
 
-      - name: Setup Chrome
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@v1
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Convert DOCX uploads to Markdown
+        run: pwsh ./tools/convert-docx-to-md.ps1
+
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
 
       - name: Install DocFX
         run: dotnet tool install -g docfx
 
-      - name: Debounce markdown updates before deploy
-        if: github.event_name == 'push'
-        run: sleep 120
-
       - name: Build site and generate PDFs
         env:
-          BROWSER_PDF_EXE: ${{ steps.setup-chrome.outputs.chrome-path }}
+          USE_PLAYWRIGHT: "1"
         run: pwsh ./tools/generate-pdfs-all.ps1
 
-      - name: Deploy _site to gh-pages
-        if: github.event_name == 'push'
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          branch: gh-pages
-          folder: _site
-          clean: true
+          path: _site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

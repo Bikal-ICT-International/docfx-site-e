@@ -28,10 +28,10 @@
       "_appTitle": "ictinternational.com",
       "_appName": "ictinternational.com",
       "_enableSearch": true,
-      "_baseUrl": "/docfx-site-e",
+      "_baseUrl": "/docfx-site-d",
       "_enableContribution": true,
       "_gitContribute": {
-        "repo": "https://github.com/Bikal-ICT-International/docfx-site-e",
+        "repo": "https://github.com/Bikal-ICT-International/docfx-site-d",
         "branch": "main",
         "path": ""
       },

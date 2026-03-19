@@ -27,10 +27,21 @@
   items:
     - name: Datalogger/Node Platform (DNP)
       href: dnp.md
-      
+
 - name: Test Documentation
   href: Test.md
 
-- name: MP406
+- name: MP406 Documentation
   href: MP406.md
 
+- name: New Product A Documentation
+  href: NewProductA.md
+
+- name: New Product B Documentation
+  href: NewProductB.md
+
+- name: New Product C Documentation
+  href: NewProductC.md
+
+- name: New Product D Documentation
+  href: NewProductD.md
