@@ -94,20 +94,20 @@ jobs:
         if: steps.md-changes.outputs.changed == 'true'
         run: |
           python - <<'PY'
-            import json, urllib.request
-            def to_tuple(v):
-              return tuple(int(x) for x in v.split('.') if x.isdigit())
-            current = __import__('pip').__version__
-            with urllib.request.urlopen("https://pypi.org/pypi/pip/json") as f:
-              latest = json.load(f)["info"]["version"]
-            need = to_tuple(latest) > to_tuple(current)
-            print(f"current={current}")
-            print(f"latest={latest}")
-            print(f"update_needed={str(need).lower()}")
-            with open(r"$GITHUB_OUTPUT", "a") as out:
-              out.write(f"latest_version={latest}\n")
-              out.write(f"update_needed={str(need).lower()}\n")
-          PY
+import json, urllib.request
+def to_tuple(v):
+  return tuple(int(x) for x in v.split('.') if x.isdigit())
+current = __import__('pip').__version__
+with urllib.request.urlopen("https://pypi.org/pypi/pip/json") as f:
+  latest = json.load(f)["info"]["version"]
+need = to_tuple(latest) > to_tuple(current)
+print(f"current={current}")
+print(f"latest={latest}")
+print(f"update_needed={str(need).lower()}")
+with open(r"$GITHUB_OUTPUT", "a") as out:
+  out.write(f"latest_version={latest}\n")
+  out.write(f"update_needed={str(need).lower()}\n")
+PY
 
       - name: Cache pip downloads (per pip version)
         id: pip-cache
