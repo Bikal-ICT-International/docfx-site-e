@@ -140,13 +140,42 @@ function Get-NextPatchVersion {
     return $FallbackVersion
 }
 
+function Get-ReleaseDateForFile {
+    param(
+        [string]$Root,
+        [string]$RelativePath,
+        [string]$FallbackReleaseDate
+    )
+
+    $gitDate = $null
+    try {
+        $gitDate = (& git -C $Root log -1 --format=%cI -- $RelativePath 2>$null)
+    } catch {
+    }
+
+    if ($gitDate) {
+        try {
+            return ([DateTimeOffset]::Parse($gitDate)).ToString("MMMM yyyy")
+        } catch {
+        }
+    }
+
+    $fullPath = Join-Path $Root $RelativePath
+    if (Test-Path $fullPath) {
+        return (Get-Item $fullPath).LastWriteTime.ToString("MMMM yyyy")
+    }
+
+    return $FallbackReleaseDate
+}
+
 function Update-PdfVersionStateForFile {
     param(
         [pscustomobject]$State,
+        [string]$Root,
         [string]$RelativePath,
         [string]$FileHash,
         [string]$BaseVersion,
-        [string]$ReleaseDate
+        [string]$FallbackReleaseDate
     )
 
     $files = $State.Files
@@ -175,7 +204,7 @@ function Update-PdfVersionStateForFile {
 
     return [PSCustomObject]@{
         Version = $versionToUse
-        ReleaseDate = $ReleaseDate
+        ReleaseDate = Get-ReleaseDateForFile -Root $Root -RelativePath $RelativePath -FallbackReleaseDate $FallbackReleaseDate
     }
 }
 
@@ -500,7 +529,7 @@ function Convert-HtmlToPdf {
     )
 
     $baseVersion = "2.6.1"
-    $releaseDate = "March 2026"
+    $releaseDate = (Get-Date).ToString("MMMM yyyy")
     $versionState = Get-PdfVersionState -Root $Root
 
     $reportChanges = New-Object System.Collections.Generic.List[object]
@@ -532,7 +561,7 @@ function Convert-HtmlToPdf {
                 $oldHash = $existingEntry.ContentHash
             }
             $fileHash = (Get-FileHash -Algorithm SHA256 -Path $md.FullName).Hash
-            $releaseInfo = Update-PdfVersionStateForFile -State $versionState -RelativePath $relativeMd -FileHash $fileHash -BaseVersion $baseVersion -ReleaseDate $releaseDate
+            $releaseInfo = Update-PdfVersionStateForFile -State $versionState -Root $Root -RelativePath $relativeMd -FileHash $fileHash -BaseVersion $baseVersion -FallbackReleaseDate $releaseDate
             if (-not $existingEntry -or $oldHash -ne $fileHash) {
                 $status = if ($existingEntry) { "updated" } else { "new" }
                 [void]$reportChanges.Add([PSCustomObject]@{
