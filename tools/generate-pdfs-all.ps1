@@ -140,6 +140,149 @@ function Get-NextPatchVersion {
     return $FallbackVersion
 }
 
+function Get-TocItemsFromFile {
+    param(
+        [string]$Root,
+        [string]$TocPath
+    )
+
+    if (-not (Test-Path $TocPath)) {
+        return @()
+    }
+
+    $lines = Get-Content -Path $TocPath -Encoding UTF8
+    $items = New-Object System.Collections.Generic.List[object]
+    $stack = New-Object System.Collections.Generic.List[object]
+
+    foreach ($raw in $lines) {
+        $line = $raw
+        if ([string]::IsNullOrWhiteSpace($line)) { continue }
+        if ($line.TrimStart().StartsWith("#")) { continue }
+
+        $indent = ($line.Length - $line.TrimStart().Length)
+        $trim = $line.Trim()
+
+        if ($trim -match '^- name:\s*(.+)$') {
+            $item = [PSCustomObject]@{
+                Name = $matches[1].Trim()
+                Href = $null
+                Items = New-Object System.Collections.Generic.List[object]
+                Indent = $indent
+            }
+
+            while ($stack.Count -gt 0 -and $stack[$stack.Count - 1].Indent -ge $indent) {
+                $stack.RemoveAt($stack.Count - 1)
+            }
+
+            if ($stack.Count -gt 0) {
+                $stack[$stack.Count - 1].Items.Add($item) | Out-Null
+            }
+            else {
+                $items.Add($item) | Out-Null
+            }
+
+            $stack.Add($item) | Out-Null
+            continue
+        }
+
+        if ($trim -match '^href:\s*(.+)$') {
+            if ($stack.Count -gt 0) {
+                $stack[$stack.Count - 1].Href = $matches[1].Trim()
+            }
+            continue
+        }
+    }
+
+    return $items
+}
+
+function Get-TocOrderedRelativePaths {
+    param(
+        [string]$Root,
+        [string]$TocPath
+    )
+
+    $ordered = New-Object System.Collections.Generic.List[string]
+    $tocDir = Split-Path -Parent $TocPath
+
+    function Visit-TocItem {
+        param([object]$Item)
+
+        if ($Item.Href) {
+            $href = $Item.Href
+            $resolved = Join-Path $tocDir $href
+            if ($href.ToLowerInvariant().EndsWith(".yml") -and (Test-Path $resolved)) {
+                $nested = Get-TocOrderedRelativePaths -Root $Root -TocPath $resolved
+                foreach ($n in $nested) { $ordered.Add($n) | Out-Null }
+            }
+            elseif ($href.ToLowerInvariant().EndsWith(".md")) {
+                $full = (Resolve-Path -LiteralPath $resolved -ErrorAction SilentlyContinue)
+                if ($full) {
+                    $relative = Get-RelativePath -BasePath $Root -TargetPath $full.Path
+                    $ordered.Add($relative) | Out-Null
+                }
+            }
+        }
+
+        if ($Item.Items -and $Item.Items.Count -gt 0) {
+            foreach ($child in $Item.Items) {
+                Visit-TocItem -Item $child
+            }
+        }
+    }
+
+    $items = Get-TocItemsFromFile -Root $Root -TocPath $TocPath
+    foreach ($item in $items) {
+        Visit-TocItem -Item $item
+    }
+
+    return $ordered
+}
+
+function Get-OrderedMarkdownFilesFromToc {
+    param(
+        [string]$Root,
+        [System.IO.FileInfo[]]$MarkdownFiles
+    )
+
+    $tocPath = Join-Path $Root "toc.yml"
+    $orderedRel = Get-TocOrderedRelativePaths -Root $Root -TocPath $tocPath
+    if (($orderedRel.Count -lt 2) -and (Test-Path (Join-Path $Root "Products\\toc.yml"))) {
+        $orderedRel = Get-TocOrderedRelativePaths -Root $Root -TocPath (Join-Path $Root "Products\\toc.yml")
+    }
+    if (-not $orderedRel -or $orderedRel.Count -eq 0) {
+        return $MarkdownFiles
+    }
+
+    $byRel = @{}
+    foreach ($file in $MarkdownFiles) {
+        $rel = Get-RelativePath -BasePath $Root -TargetPath $file.FullName
+        $byRel[$rel.ToLowerInvariant()] = $file
+    }
+
+    $seen = New-Object System.Collections.Generic.HashSet[string]
+    $ordered = New-Object System.Collections.Generic.List[System.IO.FileInfo]
+
+    foreach ($rel in $orderedRel) {
+        $key = $rel.ToLowerInvariant()
+        if ($byRel.ContainsKey($key) -and -not $seen.Contains($key)) {
+            $ordered.Add($byRel[$key]) | Out-Null
+            $seen.Add($key) | Out-Null
+        }
+    }
+
+    $remaining = $MarkdownFiles | Where-Object {
+        $rel = Get-RelativePath -BasePath $Root -TargetPath $_.FullName
+        -not $seen.Contains($rel.ToLowerInvariant())
+    } | Sort-Object { (Get-RelativePath -BasePath $Root -TargetPath $_.FullName).ToLowerInvariant() }
+
+    foreach ($file in $remaining) {
+        $ordered.Add($file) | Out-Null
+    }
+
+    return $ordered
+}
+
 function Get-ReleaseDateForFile {
     param(
         [string]$Root,
@@ -1015,18 +1158,19 @@ if (Test-Path $updateTocScript) {
 }
 
 $markdownFiles = Get-MarkdownFiles -Root $repoRoot
+$orderedMarkdownFiles = Get-OrderedMarkdownFilesFromToc -Root $repoRoot -MarkdownFiles $markdownFiles
 
 if (-not $SkipBuild) {
     Invoke-DocFxBuild -Root $repoRoot
 }
 
 if (-not $SkipPdf) {
-    Convert-HtmlToPdf -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $markdownFiles
-    New-CombinedPdf -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $markdownFiles
+    Convert-HtmlToPdf -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $orderedMarkdownFiles
+    New-CombinedPdf -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $orderedMarkdownFiles
 }
 
 if (-not $SkipInject) {
-    Add-PdfLinksToHtml -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $markdownFiles
+    Add-PdfLinksToHtml -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $orderedMarkdownFiles
 }
 
 Add-SecurityMetaToHtml -SiteRoot $siteRoot
