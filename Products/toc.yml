@@ -1,4 +1,7 @@
-﻿- name: Node Documentation
+﻿- name: Sap Flow Sensor SFS
+  href: Sap-Flow-Sensor-SFS-Manual.md
+
+- name: Node Documentation
   items:
     - name: AD Node
       href: Nodes/ADNode.md
@@ -51,3 +54,4 @@
   
 - name: New Product E2 Documentation
   href: NewProductE2.md
+
