@@ -1,4 +1,3 @@
-# Sap Flow Sensor (SFS)
 
 ![Page 1](../images/sfs-manual-001.png)
 
