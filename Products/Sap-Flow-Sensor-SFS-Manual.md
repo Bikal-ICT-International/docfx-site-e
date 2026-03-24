@@ -1,6 +1,4 @@
-# Sap Flow Sensor (SFS) Manual
-
-This page preserves the original PDF layout using page images (footers removed).
+# Sap Flow Sensor (SFS)
 
 ![Page 1](../images/sfs-manual-001.png)
 
