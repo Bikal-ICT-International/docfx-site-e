@@ -1,4 +1,4 @@
-<img src="images/image1.png"
+<img src="Products/images/image1.png"
 style="width:6.26772in;height:8.86614in" />
 
 # Product Overview
