@@ -1,4 +1,4 @@
-<img src="output/SFS Manual/media/media/image1.png"
+<img src="images/image1.png"
 style="width:6.26772in;height:8.86614in" />
 
 # CE Certification
@@ -71,7 +71,7 @@ remains powered, even when the logger enters low‑power modes.
 
 ## Electrical Wiring
 
-<img src="output/SFS Manual/media/media/image2.png"
+<img src="images/image2.png"
 style="width:4.59682in;height:1.74214in" />
 
 | **Input/Output** | **Wire Colours** | **Comment**                     |
@@ -125,7 +125,7 @@ Specifications
 
 ###  Sensor to Logger Wiring configuration
 
-<img src="output/SFS Manual/media/media/image2.png"
+<img src="images/image2.png"
 style="width:4.59682in;height:1.74214in" />
 
 <span id="_Toc225260535" class="anchor"></span>Figure : Wiring
@@ -144,7 +144,7 @@ Commands
 
 ### 1.2 Serial Number Identification
 
-<img src="output/SFS Manual/media/media/image3.png"
+<img src="images/image3.png"
 style="width:5.22442in;height:3.94656in" />
 
 <span id="_Toc225255638" class="anchor"></span>Figure : Serial Number
@@ -167,7 +167,7 @@ Commands
 
 ### 1.4 Sensor Parameters
 
-<img src="output/SFS Manual/media/media/image4.png"
+<img src="images/image4.png"
 style="width:6.25972in;height:3.51111in" />
 
 <span id="_Toc225260537" class="anchor"></span>Figure : Sensor
@@ -472,7 +472,7 @@ circuitry remains active until the next cycle begins.</p></td>
 at different input voltages
 
 <span id="_Toc225260541"
-class="anchor"></span><img src="output/SFS Manual/media/media/image6.png"
+class="anchor"></span><img src="images/image6.png"
 style="width:6.26458in;height:2.84306in" />Figure : SFS Power Cycle
 Graph
 
@@ -600,7 +600,7 @@ command, power consumption can be deduced for a 24hr duration.
 
 ### 4.1 Firmware Upgrade over RS485
 
-<img src="output/SFS Manual/media/media/image7.png"
+<img src="images/image7.png"
 style="width:4.44628in;height:2.83354in" />
 
 <span id="_Toc225260542" class="anchor"></span>Figure : SFS Firmware
@@ -624,7 +624,7 @@ For the SFS firmware update process the following tools are required:
 1.  Click the “Select File” button on the software and open the latest
     firmware .sfs file from file explorer
 
-> <img src="output/SFS Manual/media/media/image8.png"
+> <img src="images/image8.png"
 > style="width:4.31429in;height:3.07042in" />
 
 <span id="_Toc225260543" class="anchor"></span>Figure : Select the
@@ -632,7 +632,7 @@ firmware file
 
 2.  Click the “Connect” button on the software
 
-> <img src="output/SFS Manual/media/media/image9.png"
+> <img src="images/image9.png"
 > style="width:4.47826in;height:3.22252in" />
 
 <span id="_Toc225260544" class="anchor"></span>Figure : Connect the
@@ -642,7 +642,7 @@ sensor
     populate with the current firmware version of the sensor, click
     “Start Update”
 
-> <img src="output/SFS Manual/media/media/image10.png"
+> <img src="images/image10.png"
 > style="width:4.76087in;height:3.41747in" />
 
 <span id="_Toc225260545" class="anchor"></span>Figure : Start Update
@@ -651,7 +651,7 @@ process
 4.  Once the “Status” of the software changes to “Done”, click
     “Disconnect”
 
-> <img src="output/SFS Manual/media/media/image11.png"
+> <img src="images/image11.png"
 > style="width:4.66304in;height:3.34401in" />
 
 <span id="_Toc225260546" class="anchor"></span>Figure : Disconnect the
@@ -664,7 +664,7 @@ sensor from the software
 ### SFS Measurement Procedure: Standard HRM
 
 <span id="_Toc225260547"
-class="anchor"></span><img src="output/SFS Manual/media/media/image12.jpeg"
+class="anchor"></span><img src="images/image12.jpeg"
 style="width:6.26458in;height:3in" />Figure : Standard HRM Measurement
 
 Note, a Concurrent HRM command variant (e.g. aC!) will abort if it
@@ -676,7 +676,7 @@ will charge before a measurement, and the measurement will complete.
 ### SFS Measurement Procedure: Raw Data 
 
 <span id="_Toc225260548"
-class="anchor"></span><img src="output/SFS Manual/media/media/image13.jpeg"
+class="anchor"></span><img src="images/image13.jpeg"
 style="width:6.25972in;height:3in" />Figure : Raw Data
 
 Note, a High Volume raw data (aHA!) command will abort if it exceeds 143
@@ -701,7 +701,7 @@ initiating the command.
 
 ### Enclosure Connector Layout
 
-<img src="output/SFS Manual/media/media/image14.png"
+<img src="images/image14.png"
 style="width:5.75557in;height:5.51351in" />
 
 <span id="_Toc225260551" class="anchor"></span>Figure : SFS Connector
@@ -717,7 +717,7 @@ probes inserted above and below the heater.
 ### Cable Connector Wiring
 
 <span id="_Toc225260552"
-class="anchor"></span><img src="output/SFS Manual/media/media/image15.png"
+class="anchor"></span><img src="images/image15.png"
 style="width:6.26806in;height:7.77708in" />Figure : SFS Cable Connector
 Wiring
 
@@ -730,7 +730,7 @@ software management of power or breaking of protocol power standards.
 The supercapacitors nominally charge to 4.8V. They can be diagnosed with
 a Supercapacitor Voltage command.
 
-<img src="output/SFS Manual/media/media/image16.png"
+<img src="images/image16.png"
 style="width:5.90119in;height:2.58678in" />
 
 <span id="_Toc225255640" class="anchor"></span>Figure : Needle Types
@@ -788,7 +788,7 @@ style="width:5.90119in;height:2.58678in" />
 > dissipated through the plastic housing, making the actual power/mm
 > even more uniform.
 
-<img src="output/SFS Manual/media/media/image17.png"
+<img src="images/image17.png"
 style="width:5.78124in;height:2.90909in" />
 
 <span id="_Toc225260540" class="anchor"></span>Figure : Heater Power
