@@ -48,9 +48,6 @@
 
 - name: New Product D Documentation
   href: NewProductD.md
-
-- name: New Product E Documentation
-  href: NewProductE.md
   
 - name: New Product E2 Documentation
   href: NewProductE2.md
