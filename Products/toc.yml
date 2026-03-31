@@ -1,54 +1,6 @@
-﻿- name: Sap Flow Sensor SFS
-  href: Sap-Flow-Sensor-SFS-Manual.md
+﻿- name: Sap Flow Sensor (SFS) Documentation
+  href: SFS.md
 
-- name: Node Documentation
-  items:
-    - name: AD Node
-      href: Nodes/ADNode.md
-    - name: S Node
-      href: Nodes/SNode.md
-    - name: MFR Node
-      href: Nodes/MFRNode.md
 
-- name: Psychrometer Documentation
-  items:
-    - name: PSY1
-      href: Psychrometer/PSY1.md
-    - name: PSY1x (SDI12)
-      href: Psychrometer/PSY1x.md
 
-- name: SAP FLOW Documentation
-  items:
-    - name: Sap Flow Sensor (SDI-12)
-      href: sapflowsensor.md
-    - name: SFM1 Sap Flow Meter
-      href: SFM1.md
-    - name: SFMx Sap Flow Meter
-      href: SFM1X.md
-
-- name: Datalogger/Node Platform Documentation
-  items:
-    - name: Datalogger/Node Platform (DNP)
-      href: dnp.md
-
-- name: Test Documentation
-  href: Test.md
-
-- name: MP406 Documentation
-  href: MP406.md
-
-- name: New Product A Documentation
-  href: NewProductA.md
-
-- name: New Product B Documentation
-  href: NewProductB.md
-
-- name: New Product C Documentation
-  href: NewProductC.md
-
-- name: New Product D Documentation
-  href: NewProductD.md
-  
-- name: New Product E Documentation
-  href: NewProductE.md
 
