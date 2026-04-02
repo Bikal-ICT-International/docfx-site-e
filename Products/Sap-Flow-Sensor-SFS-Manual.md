@@ -1,6 +1,3 @@
-<img src="../images/image310326000.png"
-style="width:8.26772in;height:10.86614in" />
-
 # CE Certification
 
 This product is certified in accordance with the CE and UKCA
@@ -33,9 +30,8 @@ ecology.
 | **Needle Options**               | 12 mm, 22.5 mm and 35 mm      |
 | **Enclosure Dimensions**         | 150 x 100 x 75 mm (L x W x H) |
 
-Table 1: SFS Power States
-
-Figure 1: Product Specification
+<span id="_Toc225954451" class="anchor"></span>Figure 1: Product
+Specification
 
 ## Power States
 
@@ -45,7 +41,7 @@ Figure 1: Product Specification
 | Active       | ~ 4 mA                 |
 | Sleeping     | ~ 2 mA                 |
 
-Table 2: Standard Inclusions
+<span id="_Toc225954434" class="anchor"></span>Table 1: SFS Power States
 
 The Sap Flow Sensor (SFS) requires continuous power from the logger to
 operate correctly. Configure the logger so that the sensor always
@@ -54,7 +50,6 @@ remains powered, even when the logger enters low‑power modes.
 # What’s in the box
 
 ## Standard Inclusions
-
 <table>
   <tr>
     <th>Inclusions</th>
@@ -70,23 +65,22 @@ remains powered, even when the logger enters low‑power modes.
   <tr>
     <td><strong>Probe Set</strong></td>
     <td align="center">
-      <img src="../images/image310326011.png" style="width:1.3in;height:1.58in;" /><br/>
+      <img src="../images/image010426011.png" style="width:1.3in;height:1.58in;" /><br/>
       SF-12Set
     </td>
     <td align="center">
-      <img src="../images/image310326017.png" style="width:1.3in;height:1.58in;" /><br/>
+      <img src="../images/image010426018.png" style="width:1.3in;height:1.58in;" /><br/>
       SF-22.5Set
     </td>
     <td align="center">
-      <img src="../images/image310326018.png" style="width:1.34in;height:1.61in;" /><br/>
+      <img src="../images/image010426019.png" style="width:1.34in;height:1.61in;" /><br/>
       SF-35Set
     </td>
   </tr>
-
   <tr>
     <td><strong>Sensor Unit</strong></td>
     <td colspan="3" align="center">
-      <img src="../images/image310326019.jpeg" style="width:1.47in;height:2.11in;" />
+      <img src="../images/image010426020.jpeg" style="width:1.47in;height:2.11in;" />
     </td>
   </tr>
 
@@ -96,7 +90,8 @@ remains powered, even when the logger enters low‑power modes.
   </tr>
 </table>
 
-Table 3: SFS Electrical Specification
+<span id="_Toc225954435" class="anchor"></span>Table 2: Standard Inclusions
+
 
 ## Options
 
@@ -112,13 +107,13 @@ Table 3: SFS Electrical Specification
 
 ## Electrical Wiring
 
-<img src="../images/image310326020.png"
-style="width:6.41441in;height:2.43098in" />
+<img src="../images/image010426021.png"
+style="width:6.73016in;height:3.79267in" />
 
-Figure 2: SFS Wiring Configuration
+<span id="_Toc225954452" class="anchor"></span>Figure 2: SFS Wiring
+Configuration
 
 <table>
-<caption><p>Table 4: Program Support</p></caption>
 <colgroup>
 <col style="width: 37%" />
 <col style="width: 31%" />
@@ -160,7 +155,8 @@ Figure 2: SFS Wiring Configuration
 </tbody>
 </table>
 
-Table 4: Program Support
+<span id="_Toc225954436" class="anchor"></span>Table 3: SFS Electrical
+Specification
 
 ## Getting started
 
@@ -184,9 +180,9 @@ different platforms, please refer to the following documents:
 | Halytech Logger Guide     | Setup and scripting guidance for using the sensor with Halytech loggers.                                 |
 | Campbell Scripts (GitHub) | Example SDI‑12 scripts and templates for Campbell loggers, available in the project’s GitHub repository. |
 
-Table 5: Test Example
+<span id="_Toc225954437" class="anchor"></span>Table 4: Program Support
 
-ICT International recommends bench testing the unit before installation.
+*ICT International recommends bench testing the unit before installation.*
 
 ### Sensor Test
 
@@ -197,10 +193,10 @@ that the reading is ready, and then retrieve the values. If the numbers
 look correctly formatted, stable, and sensible, the sensor is wired
 properly and ready for installation.
 
-<img src="../images/image310326021.png"
+<img src="../images/image010426022.png"
 style="width:6.66192in;height:4.47748in" />
 
-Figure 3: SFS Test Setup
+<span id="_Toc225954453" class="anchor"></span>Figure 3: SFS Test Setup
 
 | ***Logger*** | ***Example SFS Response***  | ***Description***                                   |
 |--------------|-----------------------------|-----------------------------------------------------|
@@ -213,14 +209,13 @@ Figure 3: SFS Test Setup
 | *0D3!*       | *0+03.000+00.000*           | *Needle Verification codes (section 5.4)*           |
 | *0D4!*       | *0+00.000*                  | *Temperature Diagnostics (section 5.4)*             |
 
-Table 6: Basic SDI-12 Commands
+<span id="_Toc225954438" class="anchor"></span>Table 5: Test Example
 
 # SDI-12 Commands
 
 ## Basic Commands
 
 <table>
-<caption><p>Table 7: Extended SDI12 Commands</p></caption>
 <colgroup>
 <col style="width: 28%" />
 <col style="width: 29%" />
@@ -327,17 +322,15 @@ same data line</td>
 </tbody>
 </table>
 
-Table 7: Extended SDI12 Commands
+<span id="_Toc225954439" class="anchor"></span>Table 6: Basic SDI-12 Commands
 
 ## Extended Commands
 
 <table>
-<caption><p><span id="_Toc225260659" class="anchor"></span>Table 8:
-Wiring Guide</p></caption>
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 38%" />
-<col style="width: 33%" />
+<col style="width: 27%" />
+<col style="width: 37%" />
+<col style="width: 34%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -354,11 +347,15 @@ Wiring Guide</p></caption>
 </tr>
 <tr class="even">
 <td>High Volume Command</td>
-<td><p>aHA!</p>
-<p>143 seconds</p>
-<p>• 10s ADC initialisation</p>
-<p>• 3s heat pulse</p>
-<p>• 130s MHRM heat pulse logging and calculation</p></td>
+    <td>
+      <p align="center"><strong><i>aHA!</i></strong></p>
+      <p align="center"><em><font color="red">143 seconds</font></em></p>
+      <ul style="list-style-type: none;">
+        <li><em><font color="red">• 10s ADC initialisation</font></em></li>
+        <li><em><font color="red">• 3s heat pulse</font></em></li>
+        <li><em><font color="red">• 130s MHRM heat pulse logging and calculation</font></em></li>
+      </ul>
+    </td>
 <td>Sensor takes measurement and returns raw thermistor readings that
 followed the heat pulse. The total measurement time is 143 seconds</td>
 </tr>
@@ -393,26 +390,117 @@ cm/hr</td>
 </tbody>
 </table>
 
-<span id="_Toc225260659" class="anchor"></span>Table 8: Wiring Guide
 
-## Example 1: Concurrent Measurement
+Table 7: Extended SDI12 Commands
 
-When using multiple SFS sensors on a logger’s SDI‑12 port, start by
-connecting each sensor one at a time and assigning it a unique address
-(by default each SFS will have addresses set to “0”). Set up the program
-in the logger so it sends the *aC!* command to each sensor in sequence.
-Include a 156‑second delay to allow all measurements to finish. After
-that, poll each sensor using the *aD0!*, *aD1!*, and *aD2!* commands.
-Once the data is returned, save it to the logger’s internal memory or an
-external memory card.
+## SDI-12 Measurement Modes Comparison
 
-<img src="../images/image310326022.png"
+| **Feature**           | **Standard (M)**                                                    | **Concurrent (C)**                                                               | **High-Volume (H)**                                         |
+|-----------------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------------------|
+| Measurement Behaviour | Sensor performs measurement immediately after receiving the command | Sensor begins measurement but releases the bus so other sensors can also measure | Sensor performs a measurement that produces a large dataset |
+| Bus Usage             | Bus is occupied until measurement time is returned                  | Bus is free during measurement; multiple sensors can measure simultaneously      | Bus is occupied during data transfer due to large data size |
+| Data Size             | Small, fixed number of values                                       | Small, fixed number of values                                                    | Large datasets (up to 999 values), ASCII or binary          |
+| Intended Use          | Routine measurements; simple sensors                                | Multi‑sensor networks; time‑coordinated sampling                                 | Sensors producing high‑density or complex data              |
+
+<span id="_Toc225954441" class="anchor"></span>Table 8: SDI-12 Measurement Modes Comparison
+
+# Sensor configuration options
+
+The SFS is a versatile unit that can be used with other SDI-12 sensors
+or in conjunction with other SFS (or a hybrid of these).
+
+By default, the SFS is shipped with the address as 0, therefore it may
+be necessary to change the address configuration. When using multiple
+SFS sensors on a logger’s SDI‑12 port, start by connecting each sensor
+one at a time and assigning it a unique address (by default each SFS
+will have addresses set to “0”). This may be necessary with other
+sensors that are connected to the data logger as well to avoid clashes.
+
+## Using multiple sensors to measure the Soil, Plant and Atmosphere Continuum: Multi‑Sensor Measurement Timing
+
+<img src="../images/image010426023.png"
+style="width:5.79348in;height:4.80099in" />
+
+<span id="_Toc225954454" class="anchor"></span>Figure 8: Multi-sensor
+setup
+
+***<u>Measurement Timing and Sensor Coordination</u>***
+
+When multiple SDI‑12 sensors share the same measurement cycle, it is
+important that their measurement windows are aligned so the resulting
+dataset represents a single, coherent point in time. In this system, the
+SFS sap flow sensor has the longest measurement duration, while the
+ATH‑VPD and SQ421‑SS complete their measurements within only a few
+seconds. For this reason, the SFS must always be triggered first.
+
+1.  *SFS Measurement (Address 0)*
+
+The SFS begins its measurement at the start of the cycle. A full SFS
+measurement requires approximately 156 seconds to complete. During this
+period, the sensor performs ADC initialization, heating, and internal
+processing. No other sensors should be triggered until the SFS
+measurement window has finished.
+
+2.  *ATH‑VPD Measurement (Address 1)*
+
+Once the SFS measurement has completed, the ATH‑VPD sensor can be
+triggered. This sensor requires only a few seconds to return valid data.
+Its measurement window should be scheduled immediately after the SFS
+window so that its data represent the same environmental conditions at
+the end of the SFS cycle.
+
+3.  *SQ421‑SS Measurement (Address 2)*
+
+The SQ421‑SS PAR sensor also completes its measurement within a few
+seconds. It should be triggered directly after the ATH‑VPD, ensuring
+that all fast‑responding sensors capture conditions at nearly the same
+moment.
+
+*Example Timing Sequence:*
+
+If a measurement cycle begins at 10:00:00 a.m.:
+
+- SFS completes its measurement at approximately 10:02:36 a.m.
+
+- ATH‑VPD completes its measurement a few seconds later
+
+- SQ421‑SS completes shortly after the ATH‑VPD
+
+Because the fast sensors are triggered immediately after the SFS
+measurement window, all three sensors effectively represent a common
+measurement time of approximately 10:03 a.m.
+
+This sequencing ensures that all sensor outputs are aligned to the same
+physical moment, providing consistent and synchronised data for
+analysis.
+
+## Using multiple SFS sensors
+
+Depending on how the SFS is connected to the datalogger there are
+different approaches to the measuring multiple SFS.
+
+- If wired on a single port (e.g. bussed) then it is necessary to use
+  the concurrent command
+
+- If each SFS is connected to an individual port, then they can be
+  measured using the standard measurement command.
+
+### Concurrent Measurement
+
+Set up the program in the logger so it sends the *aC!* command to each
+sensor in sequence. Include a 156‑second delay to allow all measurements
+to finish. After that, poll each sensor using the *aD0!*, *aD1!*, and
+*aD2!* commands. Once the data is returned, save it to the logger’s
+internal memory or an external memory card.
+
+<img src="../images/image010426024.png"
 style="width:4.63928in;height:3.08823in" />
 
-Figure 4: Concurrent Example
+<span id="_Toc225954455" class="anchor"></span>Figure 4: Concurrent
+Example
 
-<img src="../images/image310326023.jpeg"
-style="width:6.26458in;height:3in" />
+<span id="_Toc225954456"
+class="anchor"></span><img src="../images/image010426001.jpeg" style="width:6.26458in;height:3in" />
 
 Figure 5: HRM Measurement Cycle
 
@@ -422,16 +510,12 @@ before initiating the command. A Standard HRM command variant (e.g. aM!)
 is 383 seconds to ensure that even a fully depleted supercapacitor bank
 will charge before a measurement, and the measurement will complete.
 
-## Example 2: Standard Measurement
+### Standard Measurement
 
-When using multiple SFS sensors on a single SDI‑12 port, begin by
-connecting each sensor individually and assigning it a unique address,
-since all SFS units are shipped with the default address 0. After
-addressing, the logger must trigger each sensor one at a time using the
-standard *aM!* measurement command. SDI‑12 does not allow multiple
-sensors to run M! measurements concurrently on the same bus, so each
-sensor must complete its full measurement cycle before the next one is
-started.
+Using the standard *aM!* measurement command, the logger will trigger
+each sensor one at a time. SDI‑12 does not allow multiple sensors to run
+M! measurements concurrently on the same bus, so each sensor must
+complete its full measurement cycle before the next one is started.
 
 An SFS requires up to 383 seconds to complete a measurement command,
 including the time needed to recharge its supercapacitor bank. Because
@@ -445,232 +529,154 @@ After each sensor completes its measurement, the logger can retrieve the
 results using *aD0!*, *aD1!*, and *aD2!*, and then store the returned
 values in internal or external memory.
 
-<img src="../images/image310326001.png"
+<img src="../images/image010426002.png"
 style="width:3.48681in;height:2.69375in" />
 
-Figure 6: Sensor Logger Setup (for aM! command)
+<span id="_Toc225954457" class="anchor"></span>Figure 6: Sensor Logger
+Setup (for aM! command)
 
-Note: Use the Measurement command when your sensor logger setup includes
-two or more SDI‑12 ports, with each SFS connected to a separate SDI-12
-ports. This command is especially helpful when:
+*Note: Use the Measurement command when your sensor logger setup
+includes two or more SDI‑12 ports, with each SFS connected to a separate
+SDI-12 ports. This command is especially helpful when:*
 
-• The logger cannot add delays between measurements, and
+- *The logger cannot add delays between measurements, and*
 
-• The logger’s power is only active during measurement.
+- *The logger’s power is only active during measurement.*
 
-In these situations, the Measurement command ensures that every SFS on
+*In these situations, the Measurement command ensures that every SFS on
 each SDI‑12 port can take a reading and properly charge its
-supercapacitor bank.
+supercapacitor bank.*
 
-## Example 3: High Volume Measurement
+## High Volume Measurement for research purposes
 
-The *0HA!* command is used to request a High‑Volume ASCII measurement
-from the sensor at address 0. When this command is sent, the sensor
-replies with a message such as 0143480, which indicates three key pieces
-of information: the sensor’s address (0), the time remaining before the
-full dataset is ready (143 seconds), and the total number of data points
-that will be returned (480 values). These 480 values represent
-temperature readings collected once per second across four thermistor
-channels. The data are arranged in repeating groups of four, where each
-second of logging produces values for Thermistor 1 OUT, Thermistor 1 IN,
-Thermistor 2 OUT, and Thermistor 2 IN in that order. The index of each
-value corresponds to the number of seconds that have passed since the
-heat pulse. The full 143‑second measurement period reflects the complete
-MHRM sequence, which includes 10 seconds of ADC initialisation, a
-3‑second heat pulse, and 130 seconds of heat‑pulse logging and
-processing. Once this sequence is complete, the full set of thermistor
-data is ready for retrieval.
+The *0HA!* command asks the sensor at address 0 to begin a High‑Volume
+ASCII measurement. When the sensor receives this command, it immediately
+replies with a short status message—for example: 0143480.
 
-<img src="../images/image310326002.jpeg"
-style="width:6.25972in;height:3in" />Figure 7: Raw Data
+This response contains three pieces of information:
+
+- Sensor address: 0
+
+- Time remaining until the full dataset is ready: 143 seconds
+
+- Total number of data points that will be available: 480 values
+
+These 480 values are temperature readings collected once per second from
+four thermistor channels. The data is arranged in repeating groups of
+four:
+
+1. Thermistor 1 OUT – every $4n^{th}$ value ($\color{blue}{\text{blue}}$)
+2. Thermistor 1 IN – every $(4n + 1)$ value ($\color{green}{\text{green}}$)
+3. Thermistor 2 OUT – every $(4n + 2)$ value ($\color{orange}{\text{orange}}$)
+4. Thermistor 2 IN – every $(4n + 3)$ value ($\color{pink}{\text{pink}}$)
+
+![Raw data visualization](../images/table8_raw_data_visualisation.png)
+
+
+<span id="_Toc225954442" class="anchor"></span> Table 9: Raw Data Visualization
+
+Each index in the dataset corresponds to the number of seconds that have
+passed since the heat pulse began. Once this sequence finishes, the
+complete set of thermistor readings is ready to be retrieved.
+
+<span id="_Toc225954458"
+class="anchor"></span><img src="../images/image010426003.jpeg" style="width:6.25972in;height:3in" />
+
+Figure 7: Raw Data
 
 Note, a High-Volume raw data (aHA!) command will abort if it exceeds 143
 seconds. Hence the supercapacitors must be fully charged before
 initiating the command.
 
-## Example 4: Multi‑Sensor Measurement Timing
-
 # Maintenance and Support
 
 ## Serial Number Identification
 
+<img src="../images/image010426004.png"
+style="width:4.0344in;height:3.04762in" />
+
+<span id="_Toc225954459" class="anchor"></span>Figure 9: Serial Number
+Identification
+
 ## Firmware Upgrade
+
+<img src="../images/image010426005.png"
+style="width:4.44628in;height:2.83354in" />
+
+<span id="_Toc225954460" class="anchor"></span>Figure 10: SFS Firmware
+Update Process
+
+For the SFS firmware update process the following tools are required:
+
+1.  Industrial USB to RS485 Converter -
+    <https://www.waveshare.com/product/usb-to-rs485.htm>
+
+2.  DC Power Source 9-24V Rated
+
+3.  ICT Sensor Firmware Updater v1.1.0 – provided by ICT International
+
+4.  Latest Sap Flow Sensor Firmware (.sfs) file – provided by ICT
+    International
+
+> After wiring the sensor as shown in Figure 5.1, launch the ICT Sensor
+> Firmware Updater on a Windows PC running Windows 10 or later.
+
+1.  Click the “Select File” button on the software and open the latest
+    firmware .sfs file from file explorer
+
+> <img src="../images/image010426006.png"
+> style="width:5.39136in;height:3.83696in" />
+
+<span id="_Toc225954461" class="anchor"></span>Figure 11: Select the
+firmware file
+
+2.  Click the “Connect” button on the software
+
+> <img src="../images/image010426007.png"
+> style="width:5.39254in;height:3.88043in" />
+
+<span id="_Toc225954462" class="anchor"></span>Figure 12: Connect the
+sensor
+
+3.  Once connected the Current Firmware section of the software will
+    populate with the current firmware version of the sensor, click
+    “Start Update”
+
+> <img src="../images/image010426008.png"
+> style="width:5.52696in;height:3.96739in" />
+
+<span id="_Toc225954463" class="anchor"></span>Figure 13: Start Update
+process
+
+4.  Once the “Status” of the software changes to “Done”, click
+    “Disconnect”
+
+> <img src="../images/image010426009.png"
+> style="width:5.50175in;height:3.94547in" />
+
+<span id="_Toc225954464" class="anchor"></span>Figure 14: Disconnect the
+sensor from the software
+
+5.  Switch off the power supply before unplugging the sensor
+
+*Note: the sensor is shipped with the latest firmware available when
+manufactured – use the Serial number to check date of Manufacture
+against FW release history on GitHub.*
 
 ## Customer Repairs
 
+| **Connectors**    | **ICT P/N**   | **Supplier P/N** | **Supplier Name** |
+|-------------------|---------------|------------------|-------------------|
+| Thermistor Probes | Connect-F     | 1441066          | Phoenix Contact   |
+| Heater Probe      | Connect-M     | 1441024          |                   |
+| Data Cable        | DataConnect-C | 1424649          |                   |
+
+
+<span id="_Toc225954443" class="anchor"></span>Table 10: Customer Repair Parts
+
 ## Diagnostic Commands
 
-## Detailed Power Information
-
-# Additional Information
-
-## SFS Measurement Procedure: Standard HRM
-
-## SFS Measurement Procedure: Raw Data
-
-## Supercapacitor Bank
-
-## Heater Power Management
-
-###  Sensor to Logger Wiring configuration
-
-<img src="../images/image310326020.png"
-style="width:4.59682in;height:1.74214in" />
-
-<span id="_Toc225260535" class="anchor"></span>Figure 8: Wiring
-Configuration of SFS
-
-| **Input/Output** | **Wire Colours** | **Comment**                     |
-|------------------|------------------|---------------------------------|
-| Power            | Red              | Voltage Range: **9-24V**        |
-| Ground           | Black            |                                 |
-| Data (SDI-12)    | White            |                                 |
-| RS485 (A)        | Green            | Used for Firmware Upgrades Only |
-| RS485 (B)        | Blue             |                                 |
-
-<span id="_Toc225260660" class="anchor"></span>Table 9: Product
-Specifications
-
-### 1.2 Serial Number Identification
-
-<img src="../images/image310326003.png"
-style="width:5.22442in;height:3.94656in" />
-
-<span id="_Toc225255638" class="anchor"></span>Figure 9: Serial Number
-Identification
-
-### 1.3 Product Specifications
-
-| **Voltage Input**                | 9-24 V                        |
-|----------------------------------|-------------------------------|
-| **Maximum Current at 12V**       | 50 mA                         |
-| **Power Consumption**            | 2.635 Wh/day                  |
-| **Minimum Measurement Interval** | 10 minutes (*recommended*)    |
-| **Communication Interface**      | SDI-12                        |
-| **Measurement Accuracy**         | 0.5 cm/hr                     |
-| **Measurement Resolution**       | 0.01 cm/hr                    |
-| **Enclosure Dimensions**         | 150 x 100 x 75 mm (L x W x H) |
-
-<span id="_Toc225260661" class="anchor"></span>Table 10: Basic SDI-12
-Commands
-
-### 1.4 Sensor Parameters
-
-<img src="../images/image310326004.png"
-style="width:6.25972in;height:3.51111in" />
-
-<span id="_Toc225260537" class="anchor"></span>Figure 10: Sensor
-Parameters
-
-### 1.5 Interchangeable Heater and Thermistor Probes
-
-The heater and thermistor probes are designed to be removable so the
-sensor can be used on different plant species. The probes may be swapped
-while the sensor is powered off, and no software changes are required.
-An internal hardware circuit automatically provides the correct heating
-energy for the installed heater needle, and the firmware identifies
-which heater is connected. In Heat Ratio Method (HRM) measurements, the
-heater needle code is returned as the 7th value, and the thermistor
-needle diagnostic is returned as the 8th value. For faster checks, the
-heater can be identified using the Trigger Heat Pulse command, and the
-thermistor can be checked using the Raw Thermistor Data command.
-
-<img src="../images/image310326005.png"
-style="width:4.28264in;height:1.67917in" />
-
-<span id="_Toc225255639" class="anchor"></span>Figure 11: Needle Types
-
-*Note: ICT International offers three standard needle sets. Customers
-can request custom thermistor positions by printing the HRM Needle
-Design.pdf and aligning it with the desired sapwood profile.*
-
-## SDI-12 COMMANDS
-
-### 2.1 Basic SDI-12 Commands
-
-<table>
-<caption><p><span id="_Toc225260662" class="anchor"></span>Table 11:
-Extended SDI-12 Commands</p></caption>
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 62%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command Name</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Acknowledge Active</td>
-<td>a!</td>
-</tr>
-<tr class="even">
-<td>Send Identification</td>
-<td>aI!</td>
-</tr>
-<tr class="odd">
-<td>Change Address</td>
-<td>aAb!</td>
-</tr>
-<tr class="even">
-<td>Address Query</td>
-<td>?!</td>
-</tr>
-<tr class="odd">
-<td>Send Data</td>
-<td><p>aD0! (uncorrected outer and inner HPV)</p>
-<p>aD1! (corrected outer and inner HPV)</p>
-<p>aD2! (corrected outer and inner SapV)</p>
-<p>aD3! (Heater and Thermistor Verification Code)<br />
-aD4! (Temperature Diagnostics)</p></td>
-</tr>
-<tr class="even">
-<td rowspan="2">Start Measurement</td>
-<td><p>aM! (Measurement Command)</p>
-<p>383 seconds</p></td>
-</tr>
-<tr class="odd">
-<td><p>aC! (Concurrent Command)</p>
-<p>156 seconds</p></td>
-</tr>
-<tr class="even">
-<td>Baseline Temperature</td>
-<td><p>aC1!</p>
-<p>30 seconds average</p></td>
-</tr>
-<tr class="odd">
-<td>Trigger Heat Pulse</td>
-<td><p>aC2!</p>
-<p>10 seconds</p></td>
-</tr>
-<tr class="even">
-<td>Raw Thermistor Data</td>
-<td><p>aC3!</p>
-<p>10 seconds</p></td>
-</tr>
-<tr class="odd">
-<td>Supercapacitor Voltage</td>
-<td>aC4!</td>
-</tr>
-<tr class="even">
-<td>Heater Voltage</td>
-<td>aC5!</td>
-</tr>
-<tr class="odd">
-<td>Board Temperature</td>
-<td>aC7!</td>
-</tr>
-</tbody>
-</table>
-
-<span id="_Toc225260662" class="anchor"></span>Table 11: Extended SDI-12
-Commands
-
-### 2.2 Extended SDI-12 Commands
-
-### 2.3 Heater Diagnostics Codes
+### Heater Diagnostics Codes
 
 | **Value** | **Shorthand**            | **Meaning**                                                              |
 |-----------|--------------------------|--------------------------------------------------------------------------|
@@ -682,10 +688,10 @@ Commands
 | 3         | 22.5mm Heater Detected   | The 13 ohm 25.3mm heater needle has been detected.                       |
 | 4         | Open Circuit Error       | Likely no needle attached / poor connection made. Reconnect needle.      |
 
-<span id="_Toc225260663" class="anchor"></span>Table 12: Heater
-Diagnostics Code
 
-### 2.4 Thermistor Diagnostics Codes
+<span id="_Toc225954444" class="anchor"></span>Table 11: Heater Diagnostics Code
+
+### Thermistor Diagnostics Codes
 
 | **Value** | **Meaning**                                                                 | **Suggested Action**                                                                      |
 |-----------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -707,10 +713,8 @@ Diagnostics Code
 | 14        | Upstream probe fully and downstream probe partially disconnected or broken. | Reconnect both thermistor probes.                                                         |
 | 15        | Upstream and downstream probes fully disconnected or broken.                | Reconnect both thermistor probes.                                                         |
 
-<span id="_Toc225260664" class="anchor"></span>Table 13: Thermistor
-Diagnostics Codes
-
-### 2.5 Temperature Rise Diagnostics Codes
+<span id="_Toc225954445" class="anchor"></span>Table 12: Thermistor Diagnostics Codes
+### Temperature Rise Diagnostics Codes
 
 | **Value** | **Meaning**                       |
 |-----------|-----------------------------------|
@@ -731,31 +735,22 @@ Diagnostics Codes
 | 14        | TUOUT + TUIN + TDOUT ERROR        |
 | 15        | TUOUT + TUIN + TDIN + TDOUT ERROR |
 
-<span id="_Toc225260665" class="anchor"></span>Table 14: Temperature
+
+<span id="_Toc225954446" class="anchor"></span> Table 13: Temperature
 Rise Diagnostics Codes
 
+## Detailed Power Information
 
+### SFS Power States
 
-## POWER
+<img src="../images/image010426010.png"
+style="width:6.09194in;height:2.76471in" />
 
-### 3.1 SFS Power States
-
-| Power States | Current Drawn (at 12V) |
-|--------------|------------------------|
-| Charging     | 50 mA                  |
-| Active       | ~ 4 mA                 |
-| Sleeping     | ~ 2 mA                 |
-
-<span id="_Toc225260666" class="anchor"></span>Table 15: SFS Power
-States
-
-> The Sap Flow Sensor (SFS) requires continuous power from the logger to
-> operate correctly. Configure the logger so that the sensor always
-> remains powered, even when the logger enters low‑power modes.
+<span id="_Toc225954465" class="anchor"></span>Figure 15: SFS Power
+Cycle Graph
 
 <table>
-<caption><p><span id="_Toc225260667" class="anchor"></span>Table 16: SFS
-States</p></caption>
+
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 83%" />
@@ -805,19 +800,13 @@ circuitry remains active until the next cycle begins.</p></td>
 </tr>
 </tbody>
 </table>
+<span id="_Toc225954447" class="anchor"></span>Table 15: SFS States
 
-<span id="_Toc225260667" class="anchor"></span>Table 16: SFS States
-
-<span id="_Toc225260541"
-class="anchor"></span><img src="../images/image310326006.png"
-style="width:6.26458in;height:2.84306in" />Figure 12: SFS Power Cycle
-Graph
-
-### 3.2 SFS Power Consumption
+### SFS Power Consumption
 
 <table>
-<caption><p><span id="_Toc225260668" class="anchor"></span>Table 17: SFS
-Power Consumption at 12V input</p></caption>
+<caption><p><span id="_Toc225954449" class="anchor"></span>Table 17: SFS
+Current Draw at different input voltages</p></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 12%" />
@@ -900,7 +889,7 @@ Power Consumption at 12V input</p></caption>
 </tbody>
 </table>
 
-<span id="_Toc225260668" class="anchor"></span>Table 17: SFS Power
+<span id="_Toc225954448" class="anchor"></span>Table 16: SFS Power
 Consumption at 12V input
 
 The current draw of the sensor differs depending on the input voltage
@@ -916,7 +905,7 @@ results:
 | 21            | 31                                             | 2.11                              | 1.22                                |
 | 24            | 28                                             | 1.96                              | 1.15                                |
 
-<span id="_Toc225260669" class="anchor"></span>Table 18: SFS Current
+<span id="_Toc225954449" class="anchor"></span>Table 17: SFS Current
 Draw at different input voltages
 
 With a 15-minute measurement interval, using a high-volume measurement
@@ -931,119 +920,85 @@ command, power consumption can be deduced for a 24hr duration.
 | 21            | 0.0221                                  | 0.0019                                | 0.0044                               | 2.73                   |
 | 24            | 0.0228                                  | 0.0020                                | 0.0048                               | 2.84                   |
 
-<span id="_Toc225260670" class="anchor"></span>Table 19: SFS Power Draw
+<span id="_Toc225954450" class="anchor"></span>Table 18: SFS Power Draw
 for high volume command
 
+# Additional Information
 
-## FIRMWARE UPGRADE
+## Interchangeable Heater and Thermistor Probes
 
-### 4.1 Firmware Upgrade over RS485
+The heater and thermistor probes are designed to be removable, allowing
+the sensor to be used across different plant species. Probes can be
+swapped while the sensor is powered off, and no software adjustments are
+required. An internal hardware circuit automatically supplies the
+correct heating energy for the installed heater needle, and the firmware
+detects which heater is connected. The attached heater needle code is
+returned as the 7th value in a Heat Ratio Method (HRM) Measurement
+command but can be more efficiently diagnosed with a Trigger Heat Pulse
+command (*aC2!*). The attached thermistor needle diagnostics are
+similarly returned as the 8th value in a Heat Ratio Method (HRM)
+Measurement command but can be more efficiently diagnosed with a Raw
+Thermistor Data command (*aC3!*).
 
-<img src="../images/image310326007.png"
-style="width:4.44628in;height:2.83354in" />
+The SFS offers three needle lengths:
 
-<span id="_Toc225260542" class="anchor"></span>Figure 13: SFS Firmware
-Update Process
+- 35 mm – *suitable for woody stems*
 
-For the SFS firmware update process the following tools are required:
+- 22.5 mm – *suitable for both woody and herbaceous stems*
 
-1.  Industrial USB to RS485 Converter -
-    <https://www.waveshare.com/product/usb-to-rs485.htm>
+- 12 mm – *suitable for herbaceous stems with diameters up to 10 mm*
 
-2.  DC Power Source 9-24V Rated
+These probes, along with their corresponding heaters, are equipped with
+M8 connectors.
 
-3.  ICT Sensor Firmware Updater v1.1.0 – provided by ICT International
+*Note: ICT International offers three standard needle sets. Customers
+can request custom thermistor positions by printing the HRM Needle
+Design.pdf and aligning it with the desired sapwood profile.*
 
-4.  Latest Sap Flow Sensor Firmware (.sfs) file – provided by ICT
-    International
+## Supercapacitor Bank
 
-> After wiring the sensor as shown in Figure 5.1, launch the ICT Sensor
-> Firmware Updater on a Windows PC running Windows 10 or later.
+The supercapacitor bank is used to store energy for heat pulses. The
+supercapacitors allow up to 6x SFS devices to be supported on the SDI-12
+bus without special power considerations i.e. no need for complicated
+software management of power or breaking of protocol power standards.
+The supercapacitors nominally charge to 4.8V. They can be diagnosed with
+a Supercapacitor Voltage command.
 
-1.  Click the “Select File” button on the software and open the latest
-    firmware .sfs file from file explorer
+<img src="../images/image010426012.png"
+style="width:4.65217in;height:2.03927in" />
 
-> <img src="../images/image310326008.png"
-> style="width:4.31429in;height:3.07042in" />
+<span id="_Toc225954466" class="anchor"></span>Figure 16: Needle Types
 
-<span id="_Toc225260543" class="anchor"></span>Figure 14: Select the
-firmware file
+## Heater Power Management
 
-2.  Click the “Connect” button on the software
+A key component of a reliable sap flow sensor is a circuitry that
+maintains stable and predetermined current flowing through the heater
+needle. In the SFS, all heater types are driven with a constant current
+of 0.67 A. The voltage automatically adjusts based on heater resistance:
 
-> <img src="../images/image310326009.png"
-> style="width:4.47826in;height:3.22252in" />
+- 35 mm (18 Ω): 12.06 V
 
-<span id="_Toc225260544" class="anchor"></span>Figure 15: Connect the
-sensor
+- 12 mm (8 Ω): 5.36 V
 
-3.  Once connected the Current Firmware section of the software will
-    populate with the current firmware version of the sensor, click
-    “Start Update”
+- 22.5 mm (13 Ω): 8.71 V
 
-> <img src="../images/image310326010.png"
-> style="width:4.76087in;height:3.41747in" />
+This results in much more consistent power per millimeter across all
+heater types which is roughly 0.263 W/mm.
 
-<span id="_Toc225260545" class="anchor"></span>Figure 16: Start Update
-process
+<img src="../images/image010426013.png"
+style="width:5.78124in;height:2.90909in" />
 
-4.  Once the “Status” of the software changes to “Done”, click
-    “Disconnect”
+<span id="_Toc225954467" class="anchor"></span>Figure 17: Heater Power
+Management
 
-> <img src="../images/image310326012.png"
-> style="width:4.66304in;height:3.34401in" />
+# Appendix
 
-<span id="_Toc225260546" class="anchor"></span>Figure 17: Disconnect the
-sensor from the software
+## Enclosure Connector Layout
 
-5.  Switch off the power supply before unplugging the sensor
-
-## Appendix A
-
-### SFS Measurement Procedure: Standard HRM
-
-<span id="_Toc225260547"
-class="anchor"></span><img src="../images/image310326023.jpeg"
-style="width:6.26458in;height:3in" />Figure 18: Standard HRM Measurement
-
-Note, a Concurrent HRM command variant (e.g. aC!) will abort if it
-exceeds 156 seconds. Hence the supercapacitors must be fully charged
-before initiating the command. A Standard HRM command variant (e.g. aM!)
-is 383 seconds to ensure that even a fully depleted supercapacitor bank
-will charge before a measurement, and the measurement will complete.
-
-### SFS Measurement Procedure: Raw Data 
-
-<span id="_Toc225260548"
-class="anchor"></span><img src="../images/image310326002.jpeg"
-style="width:6.25972in;height:3in" />Figure 19: Raw Data
-
-Note, a High Volume raw data (aHA!) command will abort if it exceeds 143
-seconds. Hence the supercapacitors must be fully charged before
-initiating the command.
-
-
-### SFS Power Modes: Notes 
-
-| **Power Modes**          | **Important Notes**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sleep                    | Bus must be powered                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                          | Occurs when no measurements are active                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Active                   | While measurement is active and supercapacitors are not changing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Charging Supercapacitors | Before HRM during 'M' command                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|                          | During a HRM measurement ('C', 'M' or 'HA'), just after a baseline measurement and before a heat pulse there is a "top up" charge that will last until the supercapacitors have adequate charge for a heat pulse. Note, with a standard interval of 15 minutes between concurrent commands, this will be ~3 seconds. If the interval since the last concurrent command is larger, the bus has only just been powered or if the bus is not powered between measurements, this "top up" charge will be longer and as such, concurrent commands should not be used without script management of power. For simplicity, 'M' commands can be used to ensure that the bus is powered for an adequate time to charge the supercapacitors. |
-|                          | Following a HRM measurement ('C', 'M' or 'HA')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-
-<span id="_Toc225260671" class="anchor"></span>Table 20: SFS Power Modes
-
-## Appendix C
-
-### Enclosure Connector Layout
-
-<img src="../images/image310326013.png"
+<img src="../images/image010426014.png"
 style="width:5.75557in;height:5.51351in" />
 
-<span id="_Toc225260551" class="anchor"></span>Figure 20: SFS Connector
+<span id="_Toc225954468" class="anchor"></span>Figure 18: SFS Connector
 Layout
 
 This diagram shows where each cable connects on the Sap Flow Sensor
@@ -1053,82 +1008,26 @@ while the three ports on the right are inputs from the probe: Heater
 Downstream (top and bottom connectors) connect to the two thermistor
 probes inserted above and below the heater.
 
-### Cable Connector Wiring
+## Heater Probe Connector Wiring
 
-<span id="_Toc225260552"
-class="anchor"></span><img src="../images/image310326014.png"
-style="width:6.26806in;height:7.77708in" />Figure 21: SFS Cable
+<img src="../images/image010426015.png"
+style="width:3.86981in;height:4.33333in" />
+
+<span id="_Toc225954469" class="anchor"></span>Figure 19: Heater Probe
 Connector Wiring
 
-### 1.6 Supercapacitor Bank
+## Thermistor Probe Connector Wiring
 
-The supercapacitor bank is used to store energy for heat pulses. The
-supercapacitors allow up to 6x SFS devices to be supported on the SDI-12
-bus without special power considerations i.e. no need for complicated
-software management of power or breaking of protocol power standards.
-The supercapacitors nominally charge to 4.8V. They can be diagnosed with
-a Supercapacitor Voltage command.
+<img src="../images/image010426016.png"
+style="width:3.85721in;height:4.38095in" />
 
-<img src="../images/image310326015.png"
-style="width:5.90119in;height:2.58678in" />
+<span id="_Toc225954470" class="anchor"></span>Figure 20: Thermistor
+Probe Connector Wiring
 
-<span id="_Toc225255640" class="anchor"></span>Figure 22: Needle Types
+## Cable Connector Wiring
 
-### 1.7 Traditional Sap Flow Meters (SFM1 and SFM1x)
+<span id="_Toc225954471"
+class="anchor"></span><img src="../images/image010426017.png"
+style="width:6.26806in;height:7.77708in" />
 
-> In traditional SFM and early SFM1x sensors, the heater always receives
-> a fixed 12 V supply. Because voltage is constant, the current depends
-> entirely on the heater’s resistance (Ohm’s Law).
-
-- Standard heater (18 Ω): 0.67 A
-
-- Corn heater (8 Ω): 1.5 A
-
-- Vine heater (13 Ω): 0.92 A
-
-> This means the corn heater draws 2.2 times, and the vine heater 1.4
-> times, the current of the standard heater.
->
-> Since Power = Voltage × Current, smaller‑resistance heaters generate
-> much more heat per millimetre of needle length:
-
-- Standard: 0.23 W/mm
-
-- Corn: 1.50 W/mm
-
-- Vine: 0.49 W/mm
-
-> As needle size decreases, power per millimetre increases sharply,
-> which can overheat and damage plant tissue. Hence, only standard 35mm
-> heater is suitable for those instruments.
-
-### 1.8 Constant Current Circuit Advantage
-
-> In the updated design for SFS, all heater types are driven with a
-> constant current of 0.67 A. The voltage automatically adjusts based on
-> heater resistance:
-
-- Standard (18 Ω): 12.06 V
-
-- Corn (8 Ω): 5.36 V
-
-- Vine (13 Ω): 8.71 V
-
-> This results in much more consistent power per millimetre across all
-> heater types:
-
-- Standard: 0.231 W/mm
-
-- Corn: 0.299 W/mm
-
-- Vine: 0.259 W/mm
-
-> Because all heaters share the same needle body, heat is also
-> dissipated through the plastic housing, making the actual power/mm
-> even more uniform.
-
-<img src="../images/image310326016.png"
-style="width:5.78124in;height:2.90909in" />
-
-<span id="_Toc225260540" class="anchor"></span>Figure 23: Heater Power
-Management
+Figure 21: SFS Cable Connector Wiring
