@@ -205,7 +205,7 @@ function Get-TocOrderedRelativePaths {
     $ordered = New-Object System.Collections.Generic.List[string]
     $tocDir = Split-Path -Parent $TocPath
 
-    function Visit-TocItem {
+    function Invoke-TocItemTraversal {
         param([object]$Item)
 
         if ($Item.Href) {
@@ -226,17 +226,65 @@ function Get-TocOrderedRelativePaths {
 
         if ($Item.Items -and $Item.Items.Count -gt 0) {
             foreach ($child in $Item.Items) {
-                Visit-TocItem -Item $child
+                Invoke-TocItemTraversal -Item $child
             }
         }
     }
 
     $items = Get-TocItemsFromFile -Root $Root -TocPath $TocPath
     foreach ($item in $items) {
-        Visit-TocItem -Item $item
+        Invoke-TocItemTraversal -Item $item
     }
 
     return $ordered
+}
+
+function Get-TocNameMapping {
+    param(
+        [string]$Root,
+        [string]$TocPath
+    )
+
+    $mapping = @{}
+    $tocDir = Split-Path -Parent $TocPath
+
+    function Invoke-TocItemTraversal {
+        param([object]$Item)
+
+        if ($Item.Href) {
+            $href = $Item.Href
+            $resolved = Join-Path $tocDir $href
+            if ($href.ToLowerInvariant().EndsWith(".yml") -and (Test-Path $resolved)) {
+                $nested = Get-TocNameMapping -Root $Root -TocPath $resolved
+                foreach ($key in $nested.Keys) {
+                    $mapping[$key] = $nested[$key]
+                }
+            }
+            elseif ($href.ToLowerInvariant().EndsWith(".md")) {
+                $full = (Resolve-Path -LiteralPath $resolved -ErrorAction SilentlyContinue)
+                if ($full) {
+                    $relative = Get-RelativePath -BasePath $Root -TargetPath $full.Path
+                    $key = $relative.ToLowerInvariant()
+                    if (-not $mapping.ContainsKey($key)) {
+                        $mapping[$key] = $Item.Name
+                    }
+                }
+            }
+        }
+
+        if ($Item.Items -and $Item.Items.Count -gt 0) {
+            foreach ($child in $Item.Items) {
+                Invoke-TocItemTraversal -Item $child
+            }
+        }
+    }
+
+    $items = Get-TocItemsFromFile -Root $Root -TocPath $TocPath
+    foreach ($item in $items) {
+        Invoke-TocItemTraversal -Item $item
+    }
+
+    return $mapping
 }
 
 function Get-OrderedMarkdownFilesFromToc {
@@ -475,7 +523,7 @@ function Start-StaticServer {
     }
     catch {
     }
-
+    
     throw "Failed to start local static server for PDF rendering."
 }
 
@@ -522,7 +570,7 @@ function Get-UsePlaywright {
     return ($value -eq "1" -or $value -eq "true" -or $value -eq "yes")
 }
 
-function Ensure-PlaywrightAvailable {
+function Test-PlaywrightAvailable {
     $check = "import importlib.util,sys; sys.exit(0 if importlib.util.find_spec('playwright') else 1)"
     & python -c $check
     if ($LASTEXITCODE -ne 0) {
@@ -537,7 +585,7 @@ function Invoke-PlaywrightPdf {
         [int]$TimeoutSeconds = 180
     )
 
-    Ensure-PlaywrightAvailable
+    Test-PlaywrightAvailable
 
     $script = @"
 import sys
@@ -911,7 +959,8 @@ function Convert-HtmlToPdf {
 function Add-PdfLinkToHtml {
     param(
         [string]$HtmlPath,
-        [string]$RelativePdfPath
+        [string]$RelativePdfPath,
+        [string]$TocName = "Download PDF"
     )
 
     if (-not (Test-Path $HtmlPath)) {
@@ -922,9 +971,11 @@ function Add-PdfLinkToHtml {
 
     $iconSvg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' aria-hidden='true'><path fill='#fff' d='M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z'/><path fill='#d32f2f' d='M15 2v5h5zM4 14h16v6H4z'/><path fill='#fff' d='M6.4 18.5h.9c.7 0 1.1-.3 1.1-.9 0-.6-.4-.9-1.1-.9h-.9v1.8zm0 .8V21H5.3v-5h2.1c1.3 0 2.1.6 2.1 1.7S8.7 19.4 7.4 19.4h-1zm4.7.8h-1.8v-5h1.8c1.5 0 2.5.9 2.5 2.5s-1 2.5-2.5 2.5zm-.7-.9h.6c.8 0 1.4-.5 1.4-1.6s-.6-1.6-1.4-1.6h-.6zm4 .9h-1.1v-5h3.1v.9h-2v1.2h1.8v.9h-1.8z'/></svg>"
     $iconData = "data:image/svg+xml,{0}" -f [System.Uri]::EscapeDataString($iconSvg)
+    
+    $buttonText = "Download PDF ($TocName)"
     $linkHtml = [Environment]::NewLine +
         "<p class=""pdf-download"" style=""margin:12px 0 20px;"">" +
-        "<a class=""pdf-download-btn"" href=""$RelativePdfPath"" download style=""display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid #355c86;border-radius:6px;background:#4f79a8;color:#ffffff;text-decoration:none;font-weight:700;transition:background-color .2s ease,border-color .2s ease,color .2s ease;"" onmouseover=""this.style.background='#2f5e91';this.style.borderColor='#244d78';this.style.color='#ffffff';"" onmouseout=""this.style.background='#4f79a8';this.style.borderColor='#355c86';this.style.color='#ffffff';"">" +
+        "<a class=""pdf-download-btn"" href=""$RelativePdfPath"" download style=""display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid #355c86;border-radius:6px;background:#4f79a8;color:#ffffff;text-decoration:none;font-weight:700;transition:background-color .2s ease,border-color .2s ease,color .2s ease;"" onmouseover=""this.style.background='#2f5e91';this.style.borderColor='#244d78';this.style.color='#ffffff';this.title='$buttonText';"" onmouseout=""this.style.background='#4f79a8';this.style.borderColor='#355c86';this.style.color='#ffffff';this.title='$buttonText';"">" +
         "<img src=""$iconData"" alt="""" width=""24"" height=""24"" style=""display:block;"" />" +
         "<span>Download PDF</span>" +
         "</a></p>" +
@@ -1008,7 +1059,8 @@ function Add-PdfLinksToHtml {
     param(
         [string]$Root,
         [string]$SiteRoot,
-        [System.IO.FileInfo[]]$MarkdownFiles
+        [System.IO.FileInfo[]]$MarkdownFiles,
+        [hashtable]$TocNameMapping = @{}
     )
 
     foreach ($md in $MarkdownFiles) {
@@ -1025,7 +1077,15 @@ function Add-PdfLinksToHtml {
 
         $htmlDir = Split-Path -Parent $htmlPath
         $relativePdfForLink = (Get-RelativePath -BasePath $htmlDir -TargetPath $sitePdfPath) -replace "\\", "/"
-        Add-PdfLinkToHtml -HtmlPath $htmlPath -RelativePdfPath $relativePdfForLink
+        
+        # Look up the TOC name for this file
+        $tocName = "Download PDF"
+        $mdLowerKey = $relativeMd.ToLowerInvariant()
+        if ($TocNameMapping.ContainsKey($mdLowerKey)) {
+            $tocName = $TocNameMapping[$mdLowerKey]
+        }
+        
+        Add-PdfLinkToHtml -HtmlPath $htmlPath -RelativePdfPath $relativePdfForLink -TocName $tocName
         Write-Host "Inserted link in: $(ConvertTo-RelativePath $relativeHtml)"
     }
 }
@@ -1170,7 +1230,17 @@ if (-not $SkipPdf) {
 }
 
 if (-not $SkipInject) {
-    Add-PdfLinksToHtml -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $orderedMarkdownFiles
+    # Build TOC name mapping from Products/toc.yml or toc.yml
+    $tocNameMapping = @{}
+    $tocPath = Join-Path $repoRoot "Products\toc.yml"
+    if (-not (Test-Path $tocPath)) {
+        $tocPath = Join-Path $repoRoot "toc.yml"
+    }
+    if (Test-Path $tocPath) {
+        $tocNameMapping = Get-TocNameMapping -Root $repoRoot -TocPath $tocPath
+    }
+    
+    Add-PdfLinksToHtml -Root $repoRoot -SiteRoot $siteRoot -MarkdownFiles $orderedMarkdownFiles -TocNameMapping $tocNameMapping
 }
 
 Add-SecurityMetaToHtml -SiteRoot $siteRoot
