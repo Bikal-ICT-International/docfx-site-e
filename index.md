@@ -20,11 +20,11 @@ Shortcuts to key information for individual products can be found here:
 - Sap Flow Measurement:
 - Installation of Sap Flow needles
 - Configuration:
-- [SFM1 Sap Flow Meter](Products/SFM1.md)
-- [SFMx Sap Flow Meter with IoT connectivity](Products/SFM1X.md)
-- [SFS Sap Flow Sensor](Products/sapflowsensor.md)
+- SFM1 Sap Flow Meter
+- SFMx Sap Flow Meter with IoT connectivity
+- [**Sap Flow Sensor (SFS)**](Products/Sap-Flow-Sensor-SFS-Manual.md)
 - Calculations
-- [Psychrometer](Products/Psychrometer/PSY1.md)
+- Psychrometer
 - Installation of psychrometer chambers
 - Stem
 - Leaf
@@ -39,7 +39,7 @@ Shortcuts to key information for individual products can be found here:
 - Acclima TDR 310/315
 - Calibration
 - Internet of Things Nodes
-- [AD-Node](Products/Nodes/ADNode.md)
+- AD-Node
 - Choosing your network
 - Installation considerations
 - Planning your node locations
