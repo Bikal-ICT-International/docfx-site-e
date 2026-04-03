@@ -20,7 +20,7 @@ ecology.
 ## Product Specification
 
 | **Voltage Input**                | 9-24 V                        |
-|----------------------------------|-------------------------------|
+|:---------------------------------:|:-------------------------------:|
 | **Maximum Current at 12V**       | 50 mA                         |
 | **Power Consumption**            | 2.635 Wh/day                  |
 | **Minimum Measurement Interval** | 10 minutes (*recommended*)    |
@@ -180,7 +180,10 @@ different platforms, please refer to the following documents:
 | Halytech Logger Guide     | Setup and scripting guidance for using the sensor with Halytech loggers.                                 |
 | Campbell Scripts (GitHub) | Example SDI‑12 scripts and templates for Campbell loggers, available in the project’s GitHub repository. |
 
+<div align="center">
 <span id="_Toc225954437" class="anchor"></span>Table 4: Program Support
+</div>
+
 
 *ICT International recommends bench testing the unit before installation.*
 
@@ -348,12 +351,12 @@ same data line</td>
 <tr class="even">
 <td>High Volume Command</td>
     <td>
-      <p align="center"><strong><i>aHA!</i></strong></p>
-      <p align="center"><em><font color="red">143 seconds</font></em></p>
+      <p align="left"><strong><i>aHA!</i></strong></p>
+      <p align="left"><em><font color="red">143 seconds</font></em></p>
       <ul style="list-style-type: none;">
-        <li><em><font color="red">• 10s ADC initialisation</font></em></li>
-        <li><em><font color="red">• 3s heat pulse</font></em></li>
-        <li><em><font color="red">• 130s MHRM heat pulse logging and calculation</font></em></li>
+        <li><em><font color="red"> 10s ADC initialisation</font></em></li>
+        <li><em><font color="red"> 3s heat pulse</font></em></li>
+        <li><em><font color="red"> 130s MHRM heat pulse logging and calculation</font></em></li>
       </ul>
     </td>
 <td>Sensor takes measurement and returns raw thermistor readings that
@@ -421,7 +424,7 @@ sensors that are connected to the data logger as well to avoid clashes.
 <img src="../images/image010426023.png"
 style="width:5.79348in;height:4.80099in" />
 
-<span id="_Toc225954454" class="anchor"></span>Figure 8: Multi-sensor
+<span id="_Toc225954454" class="anchor"></span>Figure 4: Multi-sensor
 setup
 
 ***<u>Measurement Timing and Sensor Coordination</u>***
@@ -496,13 +499,12 @@ internal memory or an external memory card.
 <img src="../images/image010426024.png"
 style="width:4.63928in;height:3.08823in" />
 
-<span id="_Toc225954455" class="anchor"></span>Figure 4: Concurrent
-Example
+<span id="_Toc225954455" class="anchor"></span>Figure 5: Concurrent Example
 
 <span id="_Toc225954456"
 class="anchor"></span><img src="../images/image010426001.jpeg" style="width:6.26458in;height:3in" />
 
-Figure 5: HRM Measurement Cycle
+Figure 6: HRM Measurement Cycle
 
 Note, a Concurrent HRM command variant (e.g. aC!) will abort if it
 exceeds 156 seconds. Hence the supercapacitors must be fully charged
@@ -532,7 +534,7 @@ values in internal or external memory.
 <img src="../images/image010426002.png"
 style="width:3.48681in;height:2.69375in" />
 
-<span id="_Toc225954457" class="anchor"></span>Figure 6: Sensor Logger
+<span id="_Toc225954457" class="anchor"></span>Figure 7: Sensor Logger
 Setup (for aM! command)
 
 *Note: Use the Measurement command when your sensor logger setup
@@ -582,7 +584,7 @@ complete set of thermistor readings is ready to be retrieved.
 <span id="_Toc225954458"
 class="anchor"></span><img src="../images/image010426003.jpeg" style="width:6.25972in;height:3in" />
 
-Figure 7: Raw Data
+Figure 8: Raw Data
 
 Note, a High-Volume raw data (aHA!) command will abort if it exceeds 143
 seconds. Hence the supercapacitors must be fully charged before
@@ -800,13 +802,11 @@ circuitry remains active until the next cycle begins.</p></td>
 </tr>
 </tbody>
 </table>
-<span id="_Toc225954447" class="anchor"></span>Table 15: SFS States
+<span id="_Toc225954447" class="anchor"></span>Table 14: SFS States
 
 ### SFS Power Consumption
 
 <table>
-<caption><p><span id="_Toc225954449" class="anchor"></span>Table 17: SFS
-Current Draw at different input voltages</p></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 12%" />
@@ -889,7 +889,7 @@ Current Draw at different input voltages</p></caption>
 </tbody>
 </table>
 
-<span id="_Toc225954448" class="anchor"></span>Table 16: SFS Power
+<span id="_Toc225954448" class="anchor"></span>Table 15: SFS Power
 Consumption at 12V input
 
 The current draw of the sensor differs depending on the input voltage
@@ -905,8 +905,7 @@ results:
 | 21            | 31                                             | 2.11                              | 1.22                                |
 | 24            | 28                                             | 1.96                              | 1.15                                |
 
-<span id="_Toc225954449" class="anchor"></span>Table 17: SFS Current
-Draw at different input voltages
+<span id="_Toc225954449" class="anchor"></span>Table 16: SFS Current Draw at different input voltages
 
 With a 15-minute measurement interval, using a high-volume measurement
 command, power consumption can be deduced for a 24hr duration.
@@ -920,8 +919,7 @@ command, power consumption can be deduced for a 24hr duration.
 | 21            | 0.0221                                  | 0.0019                                | 0.0044                               | 2.73                   |
 | 24            | 0.0228                                  | 0.0020                                | 0.0048                               | 2.84                   |
 
-<span id="_Toc225954450" class="anchor"></span>Table 18: SFS Power Draw
-for high volume command
+<span id="_Toc225954450" class="anchor"></span>Table 17: SFS Power Draw for high volume command
 
 # Additional Information
 
