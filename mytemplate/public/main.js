@@ -65,11 +65,7 @@ function addPdfButtonIfMissing() {
   var pdfPath = "/pdf" + path.replace(/\.html$/i, ".pdf");
   var button = createPdfButton(pdfPath);
 
-  if (h1.nextSibling) {
-    h1.parentNode.insertBefore(button, h1.nextSibling);
-  } else {
-    h1.parentNode.appendChild(button);
-  }
+  article.insertBefore(button, article.firstChild);
 }
 
 function renameBottomPdfLinks() {

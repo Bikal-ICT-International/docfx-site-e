@@ -1021,6 +1021,74 @@ function Remove-PdfLinkFromHtml {
         Set-Content -Path $HtmlPath -Value $newHtml -Encoding UTF8
     }
 }
+
+function Set-PageTitleInHtml {
+    param(
+        [string]$HtmlPath,
+        [string]$PageTitle
+    )
+
+    if (-not (Test-Path $HtmlPath)) {
+        return
+    }
+
+    if ([string]::IsNullOrWhiteSpace($PageTitle)) {
+        return
+    }
+
+    $htmlText = Get-Content -Path $HtmlPath -Raw -Encoding UTF8
+    if ([string]::IsNullOrWhiteSpace($htmlText)) {
+        return
+    }
+
+    $fullTitle = $PageTitle.Trim()
+    $titleMatch = [System.Text.RegularExpressions.Regex]::Match($htmlText, '(?is)<title>\s*(.*?)\s*</title>')
+    if ($titleMatch.Success) {
+        $existingTitle = [System.Net.WebUtility]::HtmlDecode($titleMatch.Groups[1].Value.Trim())
+        $suffixMatch = [System.Text.RegularExpressions.Regex]::Match($existingTitle, '\|\s*(.+)$')
+        if ($suffixMatch.Success) {
+            $siteSuffix = $suffixMatch.Groups[1].Value.Trim()
+            if (-not [string]::IsNullOrWhiteSpace($siteSuffix)) {
+                $fullTitle = "$($PageTitle.Trim()) | $siteSuffix"
+            }
+        }
+    }
+
+    $encodedTitle = [System.Net.WebUtility]::HtmlEncode($fullTitle)
+    $newHtml = $htmlText
+
+    if ($titleMatch.Success) {
+        $newHtml = [System.Text.RegularExpressions.Regex]::Replace(
+            $newHtml,
+            '(?is)<title>\s*.*?\s*</title>',
+            "<title>$encodedTitle</title>",
+            1
+        )
+    }
+
+    $metaTitleTag = "<meta name=`"title`" content=`"$encodedTitle`">"
+    if ([System.Text.RegularExpressions.Regex]::IsMatch($newHtml, '(?is)<meta\b[^>]*\bname=["'']title["''][^>]*>')) {
+        $newHtml = [System.Text.RegularExpressions.Regex]::Replace(
+            $newHtml,
+            '(?is)<meta\b[^>]*\bname=["'']title["''][^>]*>',
+            $metaTitleTag,
+            1
+        )
+    }
+    elseif ([System.Text.RegularExpressions.Regex]::IsMatch($newHtml, '(?is)<title>\s*.*?\s*</title>')) {
+        $newHtml = [System.Text.RegularExpressions.Regex]::Replace(
+            $newHtml,
+            '(?is)<title>\s*.*?\s*</title>',
+            [System.Text.RegularExpressions.MatchEvaluator]{ param($m) $m.Value + [Environment]::NewLine + "      " + $metaTitleTag },
+            1
+        )
+    }
+
+    if ($newHtml -ne $htmlText) {
+        Set-Content -Path $HtmlPath -Value $newHtml -Encoding UTF8
+    }
+}
+
 function Add-SecurityMetaToHtml {
     param([string]$SiteRoot)
 
@@ -1084,7 +1152,14 @@ function Add-PdfLinksToHtml {
         if ($TocNameMapping.ContainsKey($mdLowerKey)) {
             $tocName = $TocNameMapping[$mdLowerKey]
         }
+
+        $pageTitle = $tocName
+        if ($pageTitle -eq "Download PDF") {
+            $baseName = [System.IO.Path]::GetFileNameWithoutExtension($relativeMd)
+            $pageTitle = ($baseName -replace "[-_]+", " ").Trim()
+        }
         
+        Set-PageTitleInHtml -HtmlPath $htmlPath -PageTitle $pageTitle
         Add-PdfLinkToHtml -HtmlPath $htmlPath -RelativePdfPath $relativePdfForLink -TocName $tocName
         Write-Host "Inserted link in: $(ConvertTo-RelativePath $relativeHtml)"
     }
