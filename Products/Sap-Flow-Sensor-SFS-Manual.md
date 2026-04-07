@@ -116,6 +116,7 @@ style="width:6.73016in;height:3.79267in" />
 <span id="_Toc225954452" class="anchor"></span>Figure 2: SFS Wiring
 Configuration
 
+
 <table>
 <colgroup>
 <col style="width: 37%" />
